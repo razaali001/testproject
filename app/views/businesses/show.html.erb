@@ -1,0 +1,74 @@
+<% content_for :page_title, "Details" %>
+
+<div class="container mt-5">
+  <h3>Business Details</h3>
+  <hr />
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-6">
+          <h6>Business Name:</h6>
+        </div>
+        <div class="col-sm-6">
+          <p><%= @business.name %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-6">
+          <h6>Business Description:</h6>
+        </div>
+        <div class="col-sm-6">
+          <p><%= @business.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to "Edit", edit_business_path(@business.id)%>
+  <h3 class="mt-5">Members </h3>
+  <hr />
+  <%= link_to "Add Member", add_member_business_path(@business) %>
+  <table class="table table-bordered mt-2">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @business.users_businesses.each do |b| %>
+      <tr>
+        <td><%= b.user.name %></td>
+        <td><%= b.user.email %></td>
+        <td><%= link_to "Remove", "/businesses/#{@business.id}/destroy_member?user_id=#{b.id}", method: :delete, data: {confirm: "Are You Sure!!"}%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <h3 class="mt-5">Tasks </h3>
+  <hr />
+  <table class="table table-bordered mt-2">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Due Date</th>
+        <th>Task Type</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 shadow shadow-sm">
+      <table class="table table-stripped">
+        <thead class="bg-success text-white">
+          <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <td>Email</td>
+            <td>Role</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |u| %>
+            <tr>
+              <td><%= u.id %></td>
+              <td><%= u.name %></td>
+              <td><%= u.email %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
